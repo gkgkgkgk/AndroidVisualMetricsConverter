@@ -12,9 +12,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Spinner spinnerLeft, spinnerRight;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_speed) {
-            // Handle the camera action
+            addSpinnerItems();
         } else if (id == R.id.nav_cooking) {
 
         } else if (id == R.id.nav_data) {
@@ -98,4 +106,38 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void addSpinnerItems() {
+
+        spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
+        spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.time));
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLeft.setAdapter(dataAdapter);
+        spinnerRight.setAdapter(dataAdapter);
+    }
+
+    /*public void addListenerOnButton() {
+
+        spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
+        spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+
+        btnSubmit.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MyAndroidAppActivity.this,
+                        "OnClickListener : " +
+                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()) +
+                                "\nSpinner 2 : "+ String.valueOf(spinner2.getSelectedItem()),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        });
+    }*/
+
 }

@@ -5,4 +5,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="time">
+        <item>Seconds</item>
+        <item>Minutes</item>
+        <item>Hours</item>
+        <item>Days</item>
+        <item>Weeks</item>
+        <item>Years</item>
+        <item>Milliseconds</item>
+        <item>Nanoseconds</item>
+    </string-array>
+
 </resources>
