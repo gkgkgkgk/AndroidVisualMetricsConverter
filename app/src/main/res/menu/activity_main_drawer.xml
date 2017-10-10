@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Units">
+        <menu>
+            <item
+                android:id="@+id/nav_distance"
+                android:icon="@drawable/ic_location_on_black_24dp"
+                android:title="Distance"/>
+            <item
+                android:id="@+id/nav_time"
+                android:icon="@drawable/ic_timer_black_24dp"
+                android:title="Time"/>
+            <item
+                android:id="@+id/nav_mass"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Mass"/>
+            <item
+                android:id="@+id/nav_speed"
+                android:icon="@drawable/ic_motorcycle_black_24dp"
+                android:title="Speed"/>
+            <item
+                android:id="@+id/nav_cooking"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Mass"/>
+            <item
+                android:id="@+id/nav_data"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Speed"/>
+        </menu>
+    </item>
+
+</menu>
