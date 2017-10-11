@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_toStartOf="@+id/textView10"
         android:ems="10"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -39,7 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textView10"
         android:ems="10"
-        android:inputType="number"/>
+        android:inputType="numberDecimal"/>
 </RelativeLayout>
 
     <RelativeLayout

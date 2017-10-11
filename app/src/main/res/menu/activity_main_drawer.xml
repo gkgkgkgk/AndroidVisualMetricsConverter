@@ -13,7 +13,7 @@
                 android:title="Time"/>
             <item
                 android:id="@+id/nav_mass"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_equalizer_black_24dp"
                 android:title="Mass"/>
             <item
                 android:id="@+id/nav_speed"
@@ -21,12 +21,12 @@
                 android:title="Speed"/>
             <item
                 android:id="@+id/nav_cooking"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Mass"/>
+                android:icon="@drawable/ic_restaurant_black_24dp"
+                android:title="Cooking"/>
             <item
                 android:id="@+id/nav_data"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Speed"/>
+                android:icon="@drawable/ic_laptop_black_24dp"
+                android:title="Data"/>
         </menu>
     </item>
 

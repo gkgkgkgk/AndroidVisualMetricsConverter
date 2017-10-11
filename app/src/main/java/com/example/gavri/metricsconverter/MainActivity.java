@@ -12,8 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity
 
     Spinner spinnerLeft, spinnerRight;
 
+    String currentUnit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        addSpinnerListeners();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -89,17 +95,23 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_speed) {
-            addSpinnerItems();
+            addSpinnerItems("speed");
+            currentUnit = "speed";
         } else if (id == R.id.nav_cooking) {
-
+            addSpinnerItems("cooking");
+            currentUnit = "cooking";
         } else if (id == R.id.nav_data) {
-
+            addSpinnerItems("data");
+            currentUnit = "data";
         } else if (id == R.id.nav_distance) {
-
+            addSpinnerItems("distance");
+            currentUnit = "distance";
         } else if (id == R.id.nav_mass) {
-
+            addSpinnerItems("mass");
+            currentUnit = "mass";
         } else if (id == R.id.nav_time) {
-
+            addSpinnerItems("time");
+            currentUnit = "time";
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,37 +119,89 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void addSpinnerItems() {
+    public void addSpinnerItems(String unit) {
 
         spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
         spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.time));
+                android.R.layout.simple_spinner_item, this.getResources().getStringArray(getResources().getIdentifier(unit, "array", this.getPackageName())));
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLeft.setAdapter(dataAdapter);
         spinnerRight.setAdapter(dataAdapter);
     }
 
-    /*public void addListenerOnButton() {
+    public void addSpinnerListeners() {
 
         spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
         spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        final EditText editText15 = (EditText)findViewById(R.id.editText15);
+        final EditText editText14 = (EditText)findViewById(R.id.editText14);
+        spinnerLeft.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
-        btnSubmit.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(MyAndroidAppActivity.this,
-                        "OnClickListener : " +
-                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()) +
-                                "\nSpinner 2 : "+ String.valueOf(spinner2.getSelectedItem()),
-                        Toast.LENGTH_SHORT).show();
+                if((!editText14.getText().toString().matches("") && !editText14.getText().toString().matches(".")) && (!editText15.getText().toString().matches("") && !editText15.getText().toString().matches("."))) {
+                    calculate(currentUnit);
+                }
+                else{
+                    System.out.println("Not Calculating");
+                }
             }
-
+            public void onNothingSelected(AdapterView<?> parent){}
         });
-    }*/
+        spinnerRight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+                if((!editText14.getText().toString().matches("") && !editText14.getText().toString().matches(".")) && (!editText15.getText().toString().matches("") && !editText15.getText().toString().matches("."))) {
+                    calculate(currentUnit);
+                }
+                else{
+                    System.out.println("Not Calculating");
+                }
+            }
+            public void onNothingSelected(AdapterView<?> parent){}
+        });
+    }
 
+    public void calculate(String unit){
+        switch(unit){
+            case "time":
+                calculateTime();
+                break;
+            case "speed":
+                calculateSpeed();
+                break;
+            case "mass":
+                calculateMass();
+                break;
+            case "cooking":
+                calculateCooking();
+                break;
+            case "data":
+                calculateData();
+                break;
+            case "distance":
+                calculateDistance();
+                break;
+        }
+    }
+
+    public void calculateTime(){
+        EditText editText = (EditText)findViewById(R.id.editText15);
+        editText.setText("100", TextView.BufferType.EDITABLE);
+    }
+    public void calculateSpeed(){
+
+    }
+    public void calculateMass(){
+
+    }
+    public void calculateCooking(){
+
+    }
+    public void calculateData(){
+
+    }
+    public void calculateDistance(){
+
+    }
 }
