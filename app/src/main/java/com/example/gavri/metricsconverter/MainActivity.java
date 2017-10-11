@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_speed) {
             addSpinnerItems("speed");
+<<<<<<< HEAD
             currentUnit = "speed";
         } else if (id == R.id.nav_cooking) {
             addSpinnerItems("cooking");
@@ -112,6 +113,18 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_time) {
             addSpinnerItems("time");
             currentUnit = "time";
+=======
+        } else if (id == R.id.nav_cooking) {
+            addSpinnerItems("speed");
+        } else if (id == R.id.nav_data) {
+            addSpinnerItems("data");
+        } else if (id == R.id.nav_distance) {
+            addSpinnerItems("distance");
+        } else if (id == R.id.nav_mass) {
+            addSpinnerItems("mass");
+        } else if (id == R.id.nav_time) {
+            addSpinnerItems("time");
+>>>>>>> fe62888bd6e3a53224aba7aa31355ea7ea25ba9c
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
