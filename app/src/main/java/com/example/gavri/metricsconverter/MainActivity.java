@@ -89,17 +89,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_speed) {
-            addSpinnerItems();
+            addSpinnerItems("speed");
         } else if (id == R.id.nav_cooking) {
-
+            addSpinnerItems("speed");
         } else if (id == R.id.nav_data) {
-
+            addSpinnerItems("data");
         } else if (id == R.id.nav_distance) {
-
+            addSpinnerItems("distance");
         } else if (id == R.id.nav_mass) {
-
+            addSpinnerItems("mass");
         } else if (id == R.id.nav_time) {
-
+            addSpinnerItems("time");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void addSpinnerItems() {
+    public void addSpinnerItems(String unit) {
 
         spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
         spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.time));
+                android.R.layout.simple_spinner_item, this.getResources().getStringArray(getResources().getIdentifier(unit, "array", this.getPackageName())));
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLeft.setAdapter(dataAdapter);
         spinnerRight.setAdapter(dataAdapter);

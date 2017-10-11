@@ -16,5 +16,54 @@
         <item>Milliseconds</item>
         <item>Nanoseconds</item>
     </string-array>
-
+    <string-array name="distance">
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yard</item>
+        <item>Miles</item>
+        <item>Nanometers</item>
+        <item>Millimeters</item>
+        <item>Centimeters</item>
+        <item>Meters</item>
+        <item>Kilometers</item>
+    </string-array>
+    <string-array name="speed">
+        <item>Miles per Hour</item>
+        <item>Kilometers per Hour</item>
+        <item>Feet per Second</item>
+        <item>Meters per Second</item>
+        <item>Knots</item>
+        <item>Mach</item>
+        <item>Speed of Light</item>
+    </string-array>
+    <string-array name="cooking">
+        <item>Teaspoons</item>
+        <item>Tablespoons</item>
+        <item>Cups</item>
+        <item>Pints</item>
+        <item>Quarts</item>
+        <item>Gallons</item>
+    </string-array>
+    <string-array name="data">
+        <item>Bytes</item>
+        <item>Kilobytes</item>
+        <item>Megabytes</item>
+        <item>Gigabytes</item>
+        <item>Terabytes</item>
+        <item>Bits</item>
+        <item>Kilobits</item>
+        <item>Megabits</item>
+        <item>Gigabits</item>
+    </string-array>
+    <string-array name="mass">
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Ounce</item>
+        <item>Pound</item>
+        <item>Ton</item>
+        <item>Earth Mass</item>
+        <item>Planck Mass</item>
+        <item>Atomic Mass</item>
+        <item>Solar Mass</item>
+    </string-array>
 </resources>
