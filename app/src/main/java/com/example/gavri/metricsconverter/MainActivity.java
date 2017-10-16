@@ -37,15 +37,6 @@ public class MainActivity extends AppCompatActivity
 
         addSpinnerListeners();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -150,7 +141,9 @@ public class MainActivity extends AppCompatActivity
         spinnerLeft.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
-                if((!editText14.getText().toString().matches("") && !editText14.getText().toString().matches(".")) && (!editText15.getText().toString().matches("") && !editText15.getText().toString().matches("."))) {
+                System.out.println("Spinner 14: " + editText14.getText().toString());
+                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals(".")) || (!editText15.getText().toString().equals("") && !editText15.getText().toString().equals("."))) {
+                    System.out.println("Calculating " + currentUnit);
                     calculate(currentUnit);
                 }
                 else{
@@ -161,7 +154,9 @@ public class MainActivity extends AppCompatActivity
         });
         spinnerRight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-                if((!editText14.getText().toString().matches("") && !editText14.getText().toString().matches(".")) && (!editText15.getText().toString().matches("") && !editText15.getText().toString().matches("."))) {
+
+                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals(".")) || (!editText15.getText().toString().equals("") && !editText15.getText().toString().equals("."))) {
+                    System.out.println("Calculating " + currentUnit);
                     calculate(currentUnit);
                 }
                 else{
@@ -200,6 +195,63 @@ public class MainActivity extends AppCompatActivity
         EditText rightText = (EditText)findViewById(R.id.editText15);
 
         double leftNumber = Integer.parseInt(leftText.getText().toString());
+        double rightNumber = 0.0;
+
+        double seconds = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Seconds":
+                seconds = leftNumber;
+                break;
+            case "Minutes":
+                seconds = leftNumber * 60;
+                break;
+            case "Hours":
+                seconds = leftNumber * 3600;
+                break;
+            case "Days":
+                seconds = leftNumber * 3600 * 24;
+                break;
+            case "Weeks":
+                seconds = leftNumber * 3600 * 24 * 7;
+                break;
+            case "Years":
+                seconds = leftNumber * 3600 * 24 * 7 * 365.2422;
+                break;
+            case "Milliseconds":
+                seconds = leftNumber / 1000.0;
+                break;
+            case "Nanoseconds":
+                seconds = leftNumber / 1000000000.0;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Seconds":
+                rightNumber = seconds;
+                break;
+            case "Minutes":
+                rightNumber = seconds / 60.0;
+                break;
+            case "Hours":
+                rightNumber = seconds / (3600.0);
+                break;
+            case "Days":
+                rightNumber = seconds / (3600 * 24);
+                break;
+            case "Weeks":
+                rightNumber = seconds / (3600 * 24 * 7);
+                break;
+            case "Years":
+                rightNumber = leftNumber / (3600 * 24 * 7 * 365.2422);
+                break;
+            case "Milliseconds":
+                rightNumber = leftNumber * 1000.0;
+                break;
+            case "Nanoseconds":
+                rightNumber = leftNumber * 1000000000.0;
+        }
+
+        rightText.setText(rightNumber +"", TextView.BufferType.EDITABLE);
 
     }
     public void calculateSpeed(){
