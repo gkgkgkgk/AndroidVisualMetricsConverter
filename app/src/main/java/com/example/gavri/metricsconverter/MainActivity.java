@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_speed) {
             addSpinnerItems("speed");
-<<<<<<< HEAD
             currentUnit = "speed";
         } else if (id == R.id.nav_cooking) {
             addSpinnerItems("cooking");
@@ -113,7 +112,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_time) {
             addSpinnerItems("time");
             currentUnit = "time";
-=======
         } else if (id == R.id.nav_cooking) {
             addSpinnerItems("speed");
         } else if (id == R.id.nav_data) {
@@ -124,7 +122,6 @@ public class MainActivity extends AppCompatActivity
             addSpinnerItems("mass");
         } else if (id == R.id.nav_time) {
             addSpinnerItems("time");
->>>>>>> fe62888bd6e3a53224aba7aa31355ea7ea25ba9c
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -199,8 +196,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void calculateTime(){
-        EditText editText = (EditText)findViewById(R.id.editText15);
-        editText.setText("100", TextView.BufferType.EDITABLE);
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        EditText rightText = (EditText)findViewById(R.id.editText15);
+
+        double leftNumber = Integer.parseInt(leftText.getText().toString());
+
     }
     public void calculateSpeed(){
 
