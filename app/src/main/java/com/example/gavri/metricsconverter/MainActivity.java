@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity
     public void calculateTime(){
         EditText leftText = (EditText)findViewById(R.id.editText14);
         TextView answer = (TextView)findViewById(R.id.answer);
-        double leftNumber = Integer.parseInt(leftText.getText().toString());
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
         double rightNumber = 0.0;
 
         double seconds = 0;
@@ -271,13 +271,183 @@ public class MainActivity extends AppCompatActivity
 
     }
     public void calculateSpeed(){
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        TextView answer = (TextView)findViewById(R.id.answer);
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
+        double rightNumber = 0.0;
 
+        double mph = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Miles per Hour":
+                mph = leftNumber;
+                break;
+            case "Kilometers per Hour":
+                mph = leftNumber * 0.62137119223733;
+                break;
+            case "Feet per Second":
+                mph = leftNumber * 0.68181818181818;
+                break;
+            case "Meters per Second":
+                mph = leftNumber * 2.23694;
+                break;
+            case "Knots":
+                mph = leftNumber * 1.15077945;
+                break;
+            case "Mach":
+                mph = leftNumber * 761.20705;
+                break;
+            case "Speed of Light":
+                mph = leftNumber * 670616629.3843951;
+                break;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Miles per Hour":
+                rightNumber = mph;
+                break;
+            case "Kilometers per Hour":
+                rightNumber = mph / 0.62137119223733;
+                break;
+            case "Feet per Second":
+                rightNumber = mph / 0.68181818181818;
+                break;
+            case "Meters per Second":
+                rightNumber = mph / 2.23694;
+                break;
+            case "Knots":
+                rightNumber = mph / 1.15077945;
+                break;
+            case "Mach":
+                rightNumber = mph / 761.20705;
+                break;
+            case "Speed of Light":
+                rightNumber = mph / 670616629.3843951;
+                break;
+        }
+
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateMass(){
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        TextView answer = (TextView)findViewById(R.id.answer);
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
+        double rightNumber = 0.0;
 
+        double grams = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Grams":
+                grams = leftNumber;
+                break;
+            case "Kilograms":
+                grams = leftNumber * 1000.0;
+                break;
+            case "Ounces":
+                grams = leftNumber * 28.349523;
+                break;
+            case "Pounds":
+                grams = leftNumber * 453.59233;
+                break;
+            case "Tons":
+                grams = leftNumber * 907184.66;
+                break;
+            case "Earth Mass":
+                grams = leftNumber * 5.9722 * Math.pow(10.0, 27.0);
+                break;
+            case "Atomic Mass":
+                grams = leftNumber * 1.66054 * Math.pow(10.0, -24.0);
+                break;
+            case "Planck Mass":
+                grams = leftNumber * 2.17645 * Math.pow(10.0, -5.0);
+                break;
+            case "Solar Mass":
+                grams = leftNumber * 1.9855 * Math.pow(10.0, 33.0);
+                break;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Grams":
+                rightNumber = grams;
+                break;
+            case "Kilograms":
+                rightNumber = grams / 1000.0;
+                break;
+            case "Ounces":
+                rightNumber = grams / 28.349523;
+                break;
+            case "Pounds":
+                rightNumber = grams / 453.59233;
+                break;
+            case "Tons":
+                rightNumber = grams / 907184.66;
+                break;
+            case "Earth Mass":
+                rightNumber = grams / 5.9722 / Math.pow(10.0, 27.0);
+                break;
+            case "Atomic Mass":
+                rightNumber = grams / 1.66054 / Math.pow(10.0, -24.0);
+                break;
+            case "Planck Mass":
+                rightNumber = grams / 2.17645 / Math.pow(10.0, -5.0);
+                break;
+            case "Solar Mass":
+                rightNumber = grams / 1.9855 / Math.pow(10.0, 33.0);
+                break;
+        }
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateCooking(){
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        TextView answer = (TextView)findViewById(R.id.answer);
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
+        double rightNumber = 0.0;
 
+        double teaspoons = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Teaspoons":
+                teaspoons = leftNumber;
+                break;
+            case "Tablespoons":
+                teaspoons = leftNumber * 3.0;
+                break;
+            case "Cups":
+                teaspoons = leftNumber * 48.0;
+                break;
+            case "Pints":
+                teaspoons = leftNumber * 96.0;
+                break;
+            case "Quarts":
+                teaspoons = leftNumber * 192.0;
+                break;
+            case "Gallons":
+                teaspoons = leftNumber * 768.0;
+                break;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Teaspoons":
+                rightNumber = teaspoons;
+                break;
+            case "Tablespoons":
+                rightNumber = teaspoons * 3.0;
+                break;
+            case "Cups":
+                rightNumber = teaspoons * 48.0;
+                break;
+            case "Pints":
+                rightNumber = teaspoons * 96.0;
+                break;
+            case "Quarts":
+                rightNumber = teaspoons * 192.0;
+                break;
+            case "Gallons":
+                rightNumber = teaspoons * 768.0;
+                break;
+        }
+
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateData(){
 
