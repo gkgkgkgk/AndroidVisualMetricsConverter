@@ -136,13 +136,12 @@ public class MainActivity extends AppCompatActivity
 
         spinnerLeft = (Spinner) findViewById(R.id.spinnerLeft);
         spinnerRight = (Spinner) findViewById(R.id.spinnerRight);
-        final EditText editText15 = (EditText)findViewById(R.id.editText15);
         final EditText editText14 = (EditText)findViewById(R.id.editText14);
         spinnerLeft.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
                 System.out.println("Spinner 14: " + editText14.getText().toString());
-                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals(".")) || (!editText15.getText().toString().equals("") && !editText15.getText().toString().equals("."))) {
+                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals("."))) {
                     System.out.println("Calculating " + currentUnit);
                     calculate(currentUnit);
                 }
@@ -155,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         spinnerRight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
-                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals(".")) || (!editText15.getText().toString().equals("") && !editText15.getText().toString().equals("."))) {
+                if((!editText14.getText().toString().equals("") && !editText14.getText().toString().equals("."))) {
                     System.out.println("Calculating " + currentUnit);
                     calculate(currentUnit);
                 }
@@ -192,8 +191,7 @@ public class MainActivity extends AppCompatActivity
 
     public void calculateTime(){
         EditText leftText = (EditText)findViewById(R.id.editText14);
-        EditText rightText = (EditText)findViewById(R.id.editText15);
-
+        TextView answer = (TextView)findViewById(R.id.answer);
         double leftNumber = Integer.parseInt(leftText.getText().toString());
         double rightNumber = 0.0;
 
@@ -242,16 +240,16 @@ public class MainActivity extends AppCompatActivity
                 rightNumber = seconds / (3600 * 24 * 7);
                 break;
             case "Years":
-                rightNumber = leftNumber / (3600 * 24 * 7 * 365.2422);
+                rightNumber = seconds / (3600 * 24 * 7 * 365.2422);
                 break;
             case "Milliseconds":
-                rightNumber = leftNumber * 1000.0;
+                rightNumber = seconds * 1000.0;
                 break;
             case "Nanoseconds":
-                rightNumber = leftNumber * 1000000000.0;
+                rightNumber = seconds * 1000000000.0;
         }
 
-        rightText.setText(rightNumber +"", TextView.BufferType.EDITABLE);
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
 
     }
     public void calculateSpeed(){
