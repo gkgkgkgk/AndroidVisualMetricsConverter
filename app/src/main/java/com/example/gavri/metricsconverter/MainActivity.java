@@ -450,7 +450,74 @@ public class MainActivity extends AppCompatActivity
         answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateData(){
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        TextView answer = (TextView)findViewById(R.id.answer);
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
+        double rightNumber = 0.0;
 
+        double bits = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Bits":
+                bits = leftNumber;
+                break;
+            case "Kilobits":
+                bits = leftNumber * 1000.0;
+                break;
+            case "Megabits":
+                bits = leftNumber * 1000000.0;
+                break;
+            case "Gigabits":
+                bits = leftNumber * 1000000000.0;
+                break;
+            case "Bytes":
+                bits = leftNumber * 8.0;
+                break;
+            case "Megabytes":
+                bits = leftNumber * 8000000.0;
+                break;
+            case "Kilobytes":
+                bits = leftNumber * 8000.0;
+                break;
+            case "Gigabytes":
+                bits = leftNumber *  8000000000.0;
+                break;
+            case "Terabytes":
+                bits = leftNumber * 8000000000000.0;
+                break;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Bits":
+                rightNumber = bits;
+                break;
+            case "Kilobits":
+                rightNumber = bits / 1000.0;
+                break;
+            case "Megabits":
+                rightNumber = bits / 1000000.0;
+                break;
+            case "Gigabits":
+                rightNumber = bits / 1000000000.0;
+                break;
+            case "Bytes":
+                rightNumber = bits / 8.0;
+                break;
+            case "Megabytes":
+                rightNumber = bits / 8000000.0;
+                break;
+            case "Kilobytes":
+                rightNumber = bits / 8000.0;
+                break;
+            case "Gigabytes":
+                rightNumber = bits /  8000000000.0;
+                break;
+            case "Terabytes":
+                rightNumber = bits / 8000000000000.0;
+                break;
+        }
+
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateDistance(){
 
