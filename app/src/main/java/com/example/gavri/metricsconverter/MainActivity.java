@@ -520,6 +520,73 @@ public class MainActivity extends AppCompatActivity
         answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
     public void calculateDistance(){
+        EditText leftText = (EditText)findViewById(R.id.editText14);
+        TextView answer = (TextView)findViewById(R.id.answer);
+        double leftNumber = Double.parseDouble(leftText.getText().toString());
+        double rightNumber = 0.0;
 
+        double inches = 0;
+
+        switch(spinnerLeft.getSelectedItem().toString()){
+            case "Inches":
+                inches = leftNumber;
+                break;
+            case "Feet":
+                inches = leftNumber * 12.0;
+                break;
+            case "Yards":
+                inches = leftNumber * 36.0;
+                break;
+            case "Miles":
+                inches = leftNumber * 63360.0;
+                break;
+            case "Nanometers":
+                inches = leftNumber * 9370079 * Math.pow(10.0, -8.0);
+                break;
+            case "Millimeters":
+                inches = leftNumber * 0.039370078740157;
+                break;
+            case "Centimeters":
+                inches = leftNumber * 0.39370078740157;
+                break;
+            case "Meters":
+                inches = leftNumber *  39.370078740157 ;
+                break;
+            case "Kilometers":
+                inches = leftNumber * 39379.96;
+                break;
+        }
+
+        switch(spinnerRight.getSelectedItem().toString()){
+            case "Inches":
+                rightNumber = inches;
+                break;
+            case "Feet":
+                rightNumber = inches / 12.0;
+                break;
+            case "Yards":
+                rightNumber = inches / 36.0;
+                break;
+            case "Miles":
+                rightNumber = inches / 63360.0;
+                break;
+            case "Nanometers":
+                rightNumber = inches / (9370079 * Math.pow(10.0, -8.0));
+                break;
+            case "Millimeters":
+                rightNumber = inches / 0.039370078740157;
+                break;
+            case "Centimeters":
+                rightNumber = inches / 0.39370078740157;
+                break;
+            case "Meters":
+                rightNumber = inches /  39.370078740157 ;
+                break;
+            case "Kilometers":
+                rightNumber = inches / 39379.96;
+                break;
+        }
+
+        answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
 }
