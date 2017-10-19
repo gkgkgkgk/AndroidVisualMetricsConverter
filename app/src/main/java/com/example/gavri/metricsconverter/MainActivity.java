@@ -142,7 +142,8 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                final EditText editText14 = (EditText)findViewById(R.id.editText14);
+                if (actionId == EditorInfo.IME_ACTION_DONE && (!editText14.getText().toString().equals("") && !editText14.getText().toString().equals("."))) {
                     calculate(currentUnit);
                     return true;
                 }
