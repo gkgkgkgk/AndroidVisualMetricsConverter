@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidVisualMetricsConverter.iml" filepath="$PROJECT_DIR$/AndroidVisualMetricsConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidVisualMetricsConverter.iml" filepath="$PROJECT_DIR$/AndroidVisualMetricsConverter.iml" />
       <module fileurl="file://$PROJECT_DIR$/MetricsConverter.iml" filepath="$PROJECT_DIR$/MetricsConverter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
