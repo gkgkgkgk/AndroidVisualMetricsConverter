@@ -19,7 +19,7 @@
     <string-array name="distance">
         <item>Inches</item>
         <item>Feet</item>
-        <item>Yard</item>
+        <item>Yards</item>
         <item>Miles</item>
         <item>Nanometers</item>
         <item>Millimeters</item>

@@ -1,0 +1,17 @@
+<animated-vector
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/clock"
+    >
+<target
+    android:animation="@animator/first_rotation"
+    android:name="first"
+    >
+</target>
+    <target
+        android:animation="@animator/second_rotation"
+        android:name="second"
+        >
+    </target>
+
+
+</animated-vector>

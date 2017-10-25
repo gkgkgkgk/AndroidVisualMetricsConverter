@@ -1,5 +1,8 @@
 package com.example.gavri.metricsconverter;
 
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +20,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -30,12 +34,17 @@ public class MainActivity extends AppCompatActivity
 
     String currentUnit;
 
+    ImageView animation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        animation = (ImageView) findViewById(R.id.animationImage);
+        setUpAnimation();
 
         addSpinnerListeners();
 
@@ -590,4 +599,18 @@ public class MainActivity extends AppCompatActivity
 
         answer.setText(rightNumber + "", TextView.BufferType.EDITABLE);
     }
+
+    public void setUpAnimation(){
+        System.out.println("Setting up animation");
+        Drawable d = animation.getDrawable();
+        if (d instanceof Animatable) {
+            ((Animatable) d).start();
+        }
+        else{
+            System.out.println("Not Drawing");
+        }
+
+    }
+
+
 }
