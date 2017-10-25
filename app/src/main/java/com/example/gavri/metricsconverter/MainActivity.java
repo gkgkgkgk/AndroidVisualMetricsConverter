@@ -1,6 +1,7 @@
 package com.example.gavri.metricsconverter;
 
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
@@ -32,9 +33,9 @@ public class MainActivity extends AppCompatActivity
 
     Spinner spinnerLeft, spinnerRight;
 
-    String currentUnit;
+    String currentUnit = "";
 
-    ImageView animation;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        animation = (ImageView) findViewById(R.id.animationImage);
+        imageView = (ImageView) findViewById(R.id.animationImage);
         setUpAnimation();
 
         addSpinnerListeners();
@@ -195,6 +196,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void calculate(String unit){
+        setUpAnimation();
         switch(unit){
             case "time":
                 calculateTime();
@@ -601,10 +603,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setUpAnimation(){
-        System.out.println("Setting up animation");
-        Drawable d = animation.getDrawable();
-        if (d instanceof Animatable) {
-            ((Animatable) d).start();
+        Drawable d = imageView.getDrawable();
+        if (d instanceof AnimatedVectorDrawable) {
+            AnimatedVectorDrawable a = (AnimatedVectorDrawable) d;
+            EditText editText14 = (EditText)findViewById(R.id.editText14);
+            TextView text = (TextView)findViewById(R.id.answer);
+            startAnimation(a, currentUnit, editText14.getText().toString(), text.getText().toString());
+            a.start();
         }
         else{
             System.out.println("Not Drawing");
@@ -612,5 +617,25 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void startAnimation(AnimatedVectorDrawable animation, String unit, String editText, String answer){
+        switch(unit){
+            case "time":
+                imageView.setImageResource(R.drawable.clock_animation);
+                animation.start();
+                break;
+            case "speed":
+                break;
+            case "mass":
+                break;
+            case "cooking":
+                break;
+            case "data":
+                break;
+            case "distance":
+                break;
+            default:
+                break;
+        }
+    }
 
 }

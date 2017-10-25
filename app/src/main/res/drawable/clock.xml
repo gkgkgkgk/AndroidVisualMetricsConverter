@@ -5,7 +5,7 @@
     android:viewportHeight="100"
     android:viewportWidth="100" >
     <group
-        android:name="minutes"
+        android:name="first_rotation"
         android:pivotX="50"
         android:pivotY="50"
         android:rotation="0">
@@ -16,7 +16,7 @@
             android:pathData="M 50,50 L 50,12"/>
     </group>
     <group
-        android:name="hours"
+        android:name="second_rotation"
         android:pivotX="50"
         android:pivotY="50"
         android:rotation="0">
