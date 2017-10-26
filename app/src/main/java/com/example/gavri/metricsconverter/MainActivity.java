@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity
     Spinner spinnerLeft, spinnerRight;
 
     String currentUnit = "";
-
+    Drawable d;
+    AnimatedVectorDrawable a;
     ImageView imageView;
 
     @Override
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         imageView = (ImageView) findViewById(R.id.animationImage);
-        setUpAnimation();
 
         addSpinnerListeners();
 
@@ -603,13 +603,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setUpAnimation(){
-        Drawable d = imageView.getDrawable();
+        System.out.println("Setting Up animation");
+        d = imageView.getDrawable();
         if (d instanceof AnimatedVectorDrawable) {
-            AnimatedVectorDrawable a = (AnimatedVectorDrawable) d;
+            a = (AnimatedVectorDrawable) d;
             EditText editText14 = (EditText)findViewById(R.id.editText14);
             TextView text = (TextView)findViewById(R.id.answer);
             startAnimation(a, currentUnit, editText14.getText().toString(), text.getText().toString());
-            a.start();
         }
         else{
             System.out.println("Not Drawing");
@@ -620,8 +620,7 @@ public class MainActivity extends AppCompatActivity
     public void startAnimation(AnimatedVectorDrawable animation, String unit, String editText, String answer){
         switch(unit){
             case "time":
-                imageView.setImageResource(R.drawable.clock_animation);
-                animation.start();
+                a.start();
                 break;
             case "speed":
                 break;
