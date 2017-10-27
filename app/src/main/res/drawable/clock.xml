@@ -24,7 +24,7 @@
             android:strokeColor="@android:color/holo_blue_dark"
             android:strokeWidth="4"
             android:strokeLineCap="round"
-            android:pathData="M 50,50 L 24,50"/>
+            android:pathData="M 50,50 L 50,12"/>
     </group>
     <path
         android:strokeColor="@android:color/holo_red_dark"

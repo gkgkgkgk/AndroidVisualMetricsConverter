@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Spinner spinnerLeft, spinnerRight;
-
     String currentUnit = "";
     Drawable d;
     AnimatedVectorDrawable a;
